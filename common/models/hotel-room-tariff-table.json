@@ -1,0 +1,30 @@
+{
+  "name": "hotel_room_tariff_table",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "HCode": {
+      "type": "string",
+      "required": true
+    },
+    "RCode": {
+      "type": "string",
+      "required": true
+    },
+    "Price": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "hotel_transport_tariff",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "required": true
+    },
+    "TCode": {
+      "type": "string",
+      "required": true
+    },
+    "HCode": {
+      "type": "string"
+    },
+    "Price": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

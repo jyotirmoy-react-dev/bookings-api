@@ -1,0 +1,16 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mysqlDB": {
+    "host": "127.0.0.2",
+    "port": 3306,
+    "url": "",
+    "database": "bookings-master",
+    "password": "root123",
+    "name": "mysqlDB",
+    "user": "root",
+    "connector": "mysql"
+  }
+}
