@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.2
--- Generation Time: Apr 18, 2018 at 02:18 PM
+-- Generation Time: Apr 23, 2018 at 07:38 PM
 -- Server version: 10.1.16-MariaDB
--- PHP Version: 7.0.9
+-- PHP Version: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -31,6 +31,16 @@ CREATE TABLE `category_master` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `category_master`
+--
+
+INSERT INTO `category_master` (`CName`, `id`) VALUES
+('Near Main Road', 3),
+('Near Market', 4),
+('Mountain Facing', 5),
+('Near Public Transportation', 6);
+
 -- --------------------------------------------------------
 
 --
@@ -40,8 +50,21 @@ CREATE TABLE `category_master` (
 CREATE TABLE `hotel_category_table` (
   `HCode` varchar(250) NOT NULL,
   `CCode` varchar(250) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `hotelMasterId` int(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hotel_category_table`
+--
+
+INSERT INTO `hotel_category_table` (`HCode`, `CCode`, `id`, `hotelMasterId`) VALUES
+('1', 'Near Mall Road', 1, 1),
+('2', 'Near Main Road', 3, 2),
+('2', 'Mountain Facing', 6, 2),
+('1', 'Near Public Transportation', 7, 1),
+('3', 'Near Market', 9, 3),
+('1', 'Near Main Road', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -57,6 +80,15 @@ CREATE TABLE `hotel_master` (
   `HEmail` varchar(2500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `hotel_master`
+--
+
+INSERT INTO `hotel_master` (`id`, `HName`, `HContact`, `HPhone`, `HEmail`) VALUES
+(1, 'Sample Hotel', 'jyotirmoy', '9871086913', 'jyotirmoy@gmail.com'),
+(2, 'New Hotel', 'Jyotirmoy', '9871086913', 'jyotirmoy85@gmail.com'),
+(3, 'Hotel Le Grande', 'jyotirmoy', '9871086913', 'jyotirmoy85@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -67,7 +99,8 @@ CREATE TABLE `hotel_room_tariff_table` (
   `HCode` varchar(250) NOT NULL,
   `RCode` varchar(250) NOT NULL,
   `Price` varchar(2500) NOT NULL,
-  `id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `hotelroomid` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -93,6 +126,14 @@ CREATE TABLE `room_category_master` (
   `id` int(11) NOT NULL,
   `RName` varchar(2500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `room_category_master`
+--
+
+INSERT INTO `room_category_master` (`id`, `RName`) VALUES
+(2, 'Delux Ac'),
+(3, 'Non Ac Delux');
 
 -- --------------------------------------------------------
 
@@ -188,17 +229,17 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `category_master`
 --
 ALTER TABLE `category_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `hotel_category_table`
 --
 ALTER TABLE `hotel_category_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `hotel_master`
 --
 ALTER TABLE `hotel_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `hotel_room_tariff_table`
 --
@@ -213,7 +254,7 @@ ALTER TABLE `hotel_transport_tariff`
 -- AUTO_INCREMENT for table `room_category_master`
 --
 ALTER TABLE `room_category_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `transport_master`
 --
