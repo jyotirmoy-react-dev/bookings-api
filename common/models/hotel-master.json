@@ -28,7 +28,24 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "hotelCategoryTables": {
+      "type": "hasMany",
+      "model": "hotel_category_table",
+      "foreignKey": "",
+      "options": {
+        "nestRemoting": true
+      }
+    },
+    "hotelRoomTariffTables": {
+      "type": "hasMany",
+      "model": "hotel_room_tariff_table",
+      "foreignKey": "hotelroomid",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
