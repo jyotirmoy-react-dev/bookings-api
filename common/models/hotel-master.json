@@ -44,6 +44,11 @@
       "options": {
         "nestRemoting": true
       }
+    },
+    "hotelTransportTariffs": {
+      "type": "hasMany",
+      "model": "hotel_transport_tariff",
+      "foreignKey": "HCode"
     }
   },
   "acls": [],
